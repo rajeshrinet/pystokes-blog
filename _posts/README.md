@@ -5,14 +5,14 @@
 You must save your notebook with the naming convention `YYYY-MM-DD-*.md`.  Examples of valid filenames are:
 
 ```shell
-ex01-unboundedFlow.ipynb
-ex02-flowPlaneSurface.ipynb 
-ex03-crystalNucleation.ipynb 
-ex04-crystallization.ipynb 
-ex05-phoreticField.ipynb 
-ex06-arrestedCluster.ipynb 
-ex07-benchmark.ipynb 
-ex08-holographicTrap.ipynb
+2020-07-19-ex01-unboundedFlow.ipynb
+2020-07-19-ex02-flowPlaneSurface.ipynb 
+2020-07-19-ex03-crystalNucleation.ipynb 
+2020-07-19-ex04-crystallization.ipynb 
+2020-07-19-ex05-phoreticField.ipynb 
+2020-07-19-ex06-arrestedCluster.ipynb 
+2020-07-19-ex07-benchmark.ipynb 
+2020-07-19-ex08-holographicTrap.ipynb
 ```
 
 # Resources
