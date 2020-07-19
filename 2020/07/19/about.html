@@ -1,0 +1,118 @@
+<h2 id="phoresis-and-stokesian-hydrodynamics">Phoresis and Stokesian hydrodynamics</h2>
+
+<table>
+  <tbody>
+    <tr>
+      <td><a href="#phoretic-interactions">Phoretic interactions</a></td>
+      <td><a href="#hydrodynamic-interactions">Hydrodynamic interactions</a></td>
+      <td><a href="#installation">Installation</a></td>
+      <td><a href="#reading">Reading</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>PyStokes is a Python library for studying phoretic and hydrodynamic interactions between spherical particles. In particular, the library has been specifically designed for studying these interactions in suspensions of active particles. Such particles are distinguished by their ability to produce flow, and thus motion, in the absence of external forces or torques. Active particles are endowed with a mechanism to produce hydrodynamic flow in a thin interfacial layer, which may be due to the motion of cilia, as in microorganisms (Brennen &amp; Winet, 1977) or osmotic flows of various kinds in response to spontaneously generated gradients of phoretic fields (Ebbens &amp; Howse, 2010). The latter, often called autophoresis as we describe in more detail below.</p>
+
+<h2 id="phoretic-interactions">Phoretic interactions</h2>
+
+<p>Phoresis means motion of colloidal particles in response to interfacial forces.  Quoting (JL Anderson, Ann Rev Fluid Mech (1989))</p>
+
+<blockquote>
+  <p>Phoretic transport is defined as the movement of colloidal particles by a field that interacts with the surface of each particle</p>
+</blockquote>
+
+<ul>
+  <li>
+    <p><strong>What are examples phoresis?</strong>  Examples of phoresis (phoretic field) are electrophoresis (electric field), diffusiophoresis (concentration of chemical field), thermophoresis (temperature field) etc.  The phoretic motion of the colloid in this case is due to the externally imposed electric field. The phoretic transport results from an electrophoretic slip velocity on the surface of the particles as we now describe.</p>
+  </li>
+  <li>
+    <p><strong>Electrophoresis: how does a neutral object (charged particle with negative counter-ions) propel under the effect of electric field?</strong> Consider a particle with a charge q in a non-conducting fluid. Once an electric field E is applied, the colloid moves due to the body force qE acting on it. The motion also creates flow v, which decays as v ~1/r, where r is the distance from the colloid. On the other hand, if the fluid is electrolytic, then the flow decays as v ~ 1/r^3. Why?<br />As described in the figure below, a charged particle in an electrolytic fluid is effectively neutral due to the cloud of counter-ions around it. Thus, there is no net body force and the colloid should not move! It does due to the fact that the counter-ions are mobile, which leads to a <code class="highlighter-rouge">slip</code> velocity of the surface of the particle. Solving the Stokes equation with this slip boundary condition gives v ~ 1/r^3.<img src="https://raw.githubusercontent.com/rajeshrinet/pystokes-misc/master/gallery/figs/electrophoresis.jpg" alt="Image" /></p>
+  </li>
+  <li>
+    <p><strong>What is self-diffusiophoretic motion of active particles</strong>?  The autophoretic particles self-propel due to a non-equilibrium process, such as chemical reactions on their surface. The phrase auto-phoresis is used interchangeably with self-phoresis.    Active particles are distinguished by the fact that the slip velocity does not result from an externally imposed field, but is spontaneously generated  in response to gradients of phoretic fields. A particle is “active” if it creates the phoretic field itself (for example, by a built-in chemical asymmetry on its surface), and the resulting
+phenomena is called self-phoresis</p>
+  </li>
+</ul>
+
+<p><img src="https://raw.githubusercontent.com/rajeshrinet/pystokes-misc/master/gallery/figs/self-diffusiophoresis.jpg" alt="Image" /></p>
+
+<ul>
+  <li><strong>What are phoretic interactions?</strong> The phoretic field on the surface of the particles can be modified by the proximity of other particles. Briefly, the active slip on the surface of the particles is function of chemical fluxes on the surface of all the particles and distances between them. A complete theory of these interactions is available in J. Chem. Phys. 151, 044901 (2019).</li>
+</ul>
+
+<h2 id="hydrodynamic-interactions">Hydrodynamic interactions</h2>
+
+<ul>
+  <li>
+    <p><strong>What equation does PyStokes solve</strong>?  PyStokes allows to compute phoretic and/or hydrodynamic interactions in active colloidal suspensions, when these interactions can be described by the solutions of, respectively, the Laplace and Stokes equations. The PyStokes library can also compute hydrodynamically correlated Brownian motion. Thus it allows the study of the interplay between passive, active, and Brownian contributions to motion.</p>
+  </li>
+  <li>
+    <p><strong>Does PyStokes resolve fluid degrees of freedom?</strong>  PyStokes allows freedom from grids, both in the bulk of the fluid and on the particle boundaries. PyStokes uses analytical solutions for the boundary integral equation of Stokes flow which reduces the dimensionality of the problem from a three-dimensional one in volume $V$ to a two-dimensional one on surface $S$ of the particles.</p>
+  </li>
+</ul>
+
+<h2 id="installation">Installation</h2>
+
+<p>You can take PyStokes for a spin <strong>without installation</strong>: <a href="https://mybinder.org/v2/gh/rajeshrinet/pystokes/master?filepath=binder"><img src="https://mybinder.org/badge_logo.svg" alt="Binder" /></a>. Please be patient while <a href="https://mybinder.org/v2/gh/rajeshrinet/pystokes/master?filepath=binder">Binder</a> loads.</p>
+
+<h3 id="via-anaconda">Via <a href="https://docs.conda.io/projects/continuumio-conda/en/latest/user-guide/install/index.html">Anaconda</a></h3>
+
+<p>Install PyStokes and its dependencies in an <a href="https://github.com/rajeshrinet/pystokes/blob/master/environment.yml">environment</a> named pystokes:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;</span> git clone https://github.com/rajeshrinet/pystokes.git
+<span class="o">&gt;&gt;</span> <span class="nb">cd </span>pystokes
+<span class="o">&gt;&gt;</span> make <span class="nb">env</span>
+<span class="o">&gt;&gt;</span> conda activate pystokes
+<span class="o">&gt;&gt;</span> make
+</code></pre></div></div>
+
+<h3 id="via-pip">Via pip</h3>
+
+<p>Install the latest <a href="https://pypi.org/project/pystokes">PyPI</a> version</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;</span> pip <span class="nb">install </span>pystokes
+</code></pre></div></div>
+
+<h3 id="from-a-checkout-of-this-repo">From a checkout of this repo</h3>
+
+<p>Install PyStokes and required dependencies using</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;</span> git clone https://github.com/rajeshrinet/pystokes.git
+<span class="o">&gt;&gt;</span> <span class="nb">cd </span>pystokes
+<span class="o">&gt;&gt;</span> pip <span class="nb">install</span> <span class="nt">-r</span> requirements.txt
+<span class="o">&gt;&gt;</span> python setup.py <span class="nb">install</span>
+</code></pre></div></div>
+
+<h3 id="testing">Testing</h3>
+<p>Short test of installation and running</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;</span> <span class="nb">cd </span>tests
+<span class="o">&gt;&gt;</span> python shortTests.py
+</code></pre></div></div>
+
+<p>Long test of example notebooks</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;</span> <span class="nb">cd </span>tests
+<span class="o">&gt;&gt;</span> python notebookTests.py
+</code></pre></div></div>
+
+<h2 id="reading">Reading</h2>
+
+<ul>
+  <li>
+    <p><a href="https://arxiv.org/abs/1910.00909">Hydrodynamic and phoretic interactions of active particles in Python</a>, Rajesh Singh and R. Adhikari, arXiv:1910.00909, 2019. <em>(Please cite this paper if you use PyStokes in your research)</em>.</p>
+  </li>
+  <li>
+    <p><a href="https://aip.scitation.org/doi/full/10.1063/1.5090179">Competing phoretic and hydrodynamic interactions in autophoretic colloidal suspensions</a>, Rajesh Singh, R. Adhikari, and M. E. Cates, <strong>The Journal of Chemical Physics</strong> 151, 044901 (2019)</p>
+  </li>
+  <li>
+    <p><a href="https://iopscience.iop.org/article/10.1088/2399-6528/aaab0d">Generalized Stokes laws for active colloids and their applications</a>, Rajesh Singh and R. Adhikari, <strong>Journal of Physics Communications</strong>, 2, 025025 (2018)</p>
+  </li>
+  <li>
+    <p><a href="https://www.pnas.org/content/115/21/5403">Flow-induced phase separation of active particles is controlled by boundary conditions</a>, Shashi Thutupalli, Delphine Geyer, Rajesh Singh, R. Adhikari, and Howard A. Stone, <strong>Proceedings of the National Academy of Sciences</strong>, 115, 5403 (2018)</p>
+  </li>
+  <li>
+    <p><a href="https://doi.org/10.1103/PhysRevLett.117.228002">Universal hydrodynamic mechanisms for crystallization in active colloidal suspensions</a>, Rajesh Singh and R. Adhikari,  <strong>Physical Review Letters</strong>, 117, 228002 (2016)</p>
+  </li>
+</ul>
+
