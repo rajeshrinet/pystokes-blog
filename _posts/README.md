@@ -5,8 +5,8 @@
 You must save your notebook with the naming convention `YYYY-MM-DD-*.md`.  Examples of valid filenames are:
 
 ```shell
-2020-07-19-gallery.md 
 2020-07-19-about.md
+2020-07-19-gallery.md 
 2020-07-19-ex01-unboundedFlow.ipynb
 2020-07-19-ex02-flowPlaneSurface.ipynb 
 2020-07-19-ex03-crystalNucleation.ipynb 
@@ -14,7 +14,6 @@ You must save your notebook with the naming convention `YYYY-MM-DD-*.md`.  Examp
 2020-07-19-ex05-phoreticField.ipynb 
 2020-07-19-ex06-arrestedCluster.ipynb 
 2020-07-19-ex07-benchmark.ipynb 
-2020-07-19-ex08-holographicTrap.ipynb
 ```
 
 # Resources
