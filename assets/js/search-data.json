@@ -127,8 +127,8 @@
 
   
       ,"page1": {
-          "title": "About PyStokes",
-          "content": "PyStokes is a Python library for studying phoretic and hydrodynamic interactions between spherical particles. In particular, the library has been specifically designed for studying these interactions in suspensions of active particles. Such particles are distinguished by their ability to produce flow, and thus motion, in the absence of external forces or torques. Active particles are endowed with a mechanism to produce hydrodynamic flow in a thin interfacial layer, which may be due to the motion of cilia, as in microorganisms (Brennen &amp; Winet, 1977) or osmotic flows of various kinds in response to spontaneously generated gradients of phoretic fields (Ebbens &amp; Howse, 2010). The latter, often called autophoresis as we describe in more detail below. .",
+          "title": "About",
+          "content": "PyStokes is a numerical library for phoresis and Stokesian hydrodynamics in Python. It uses a grid-free method, combining the integral representation of Laplace and Stokes equations, spectral expansion, and Galerkin discretization, to compute phoretic and hydrodynamic interactions between spheres with slip boundary conditions on their surfaces. The library also computes suspension scale quantities, such as rheological response, energy dissipation and fluid flow. The computational cost is quadratic in the number of particles and upto 1e5 particles have been accommodated on multicore computers. The library has been used to model suspensions of microorganisms, synthetic autophoretic particles and self-propelling droplets. .",
           "url": "https://rajeshrinet.github.io/pystokes-blog/about/",
           "relUrl": "/about/",
           "date": ""
